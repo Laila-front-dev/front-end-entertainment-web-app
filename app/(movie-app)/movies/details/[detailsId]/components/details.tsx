@@ -6,11 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-  params: { [key: string]: string | undefined };
+  params: { detailsId: string };
 }
 
 const Details = async ({ params }: Props) => {
-  const details = await getDetails("movie", params.detailsId);
+  const { detailsId } = await params;
+  const details = await getDetails("movie", detailsId);
 
   return (
     <main>
