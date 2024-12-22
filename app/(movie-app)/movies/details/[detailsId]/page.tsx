@@ -1,12 +1,11 @@
 import Details from "./components/details";
 
 interface Props {
-  params: { [key: string]: string | undefined };
+  params: { detailsId: string };
 }
 
 const page = async ({ params }: Props) => {
-  const awaitedParams = await params;
-  const { detailsId } = awaitedParams;
+  const { detailsId } = await Promise.resolve(params);
 
   if (!detailsId) {
     return <div>Loading...</div>;

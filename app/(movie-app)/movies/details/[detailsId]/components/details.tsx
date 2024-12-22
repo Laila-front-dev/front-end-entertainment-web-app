@@ -6,12 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-  params: { [key: string]: string | undefined };
+  params: { detailsId: string };
 }
 
 const Details = async ({ params }: Props) => {
-  const awaitedParams = await params;
-  const { detailsId } = awaitedParams;
+  const { detailsId } = await Promise.resolve(params);
 
   if (!detailsId) {
     return <div>Loading...</div>;
