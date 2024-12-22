@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-  params: { [key: string]: string | undefined };
+  params: { [key: string]: string };
 }
 
 const Details = async ({ params }: Props) => {
