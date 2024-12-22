@@ -1,12 +1,16 @@
 import Details from "./components/details";
-import { FC } from "react";
 
-interface PageProps {
-  params: { detailsId: string };
+interface Props {
+  params: { [key: string]: string | undefined };
 }
 
-const page: FC<PageProps> = async ({ params }) => {
-  const { detailsId } = await params;
+const page = async ({ params }: Props) => {
+  const awaitedParams = await params;
+  const { detailsId } = awaitedParams;
+
+  if (!detailsId) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <Details params={{ detailsId }} />
