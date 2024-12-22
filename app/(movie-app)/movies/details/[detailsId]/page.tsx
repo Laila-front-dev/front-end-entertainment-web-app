@@ -1,7 +1,7 @@
 import Details from "./components/details";
 
 interface Props {
-  params: { [key: string]: string | undefined };
+  params: { [key: string]: string };
 }
 
 const page = ({ params }: Props) => {
