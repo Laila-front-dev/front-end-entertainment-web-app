@@ -11,6 +11,8 @@ interface Props {
 
 const Details = async ({ params }: Props) => {
   const { detailsId } = await params;
+  console.log(detailsId);
+
   const details = await getDetails("movie", detailsId);
 
   return (

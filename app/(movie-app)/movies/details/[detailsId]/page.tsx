@@ -5,10 +5,11 @@ interface PageProps {
   params: { detailsId: string };
 }
 
-const page: FC<PageProps> = ({ params }) => {
+const page: FC<PageProps> = async ({ params }) => {
+  const { detailsId } = await params;
   return (
     <div>
-      <Details params={params} />
+      <Details params={{ detailsId }} />
     </div>
   );
 };
