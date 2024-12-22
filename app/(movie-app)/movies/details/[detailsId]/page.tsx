@@ -1,10 +1,11 @@
 import Details from "./components/details";
+import { FC } from "react";
 
-interface Props {
-  params: { [key: string]: string };
+interface PageProps {
+  params: { [key: string]: string | undefined };
 }
 
-const page = ({ params }: Props) => {
+const page: FC<PageProps> = ({ params }) => {
   return (
     <div>
       <Details params={params} />
