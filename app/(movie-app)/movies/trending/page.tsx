@@ -1,7 +1,7 @@
 import TrendingAll from "./components/trending";
 
 interface TrendingPageProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const TrendingPage = async ({ searchParams }: TrendingPageProps) => {

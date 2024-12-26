@@ -1,7 +1,7 @@
-import OnAiringAll from "./components/airing";
+import OnAiringAll from "./components/onair";
 
 interface PopularPageProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const PopularPage = async ({ searchParams }: PopularPageProps) => {

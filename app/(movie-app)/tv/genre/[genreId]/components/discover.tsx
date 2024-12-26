@@ -3,22 +3,27 @@ import Container from "@/components/ui/container";
 import getGenre from "@/actions/tv/get-genre";
 import PageList from "../../../components/pageList";
 import TvgetDiscover from "@/actions/tv/get-discover";
+import { DiscoverResponse } from "@/types";
+// import { TvResult } from "@/types";
 
 interface TrendingAllProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: any;
 }
 
 const DiscoverAll = async ({ params, searchParams }: TrendingAllProps) => {
-  const currentPage = parseInt((searchParams.page as string) || "1");
-  const pageSize = parseInt((searchParams.pageSize as string) || "1");
-
-  const { posts } = await TvgetDiscover(params.genreId, currentPage);
+  const paramse = await searchParams;
+  const currentPage = parseInt((paramse.page as string) || "1");
+  const pageSize = parseInt((paramse.pageSize as string) || "1");
+  const { posts }: { posts: DiscoverResponse } = await TvgetDiscover(
+    params.genreId,
+    currentPage
+  );
   const collection = await getGenre();
 
   const selectedName = collection.genres.find(
-    (genre) => genre.id === parseInt(params.genreId)
+    (genre: { id: number }) => genre.id === parseInt(params.genreId)
   );
   return (
     <Container>

@@ -1,9 +1,9 @@
 const URL = process.env.NEXT_PUBLIC_API_URL;
 const API_KEY = process.env.API_KEY;
 
-import { GenereResponse } from "@/types";
+import { DiscoverResponseTv } from "@/types";
 
-const getGenre = async (): Promise<GenereResponse> => {
+const getGenre = async (): Promise<DiscoverResponseTv> => {
   const res = await fetch(
     `${URL}/genre/tv/list?api_key=${API_KEY}
 

@@ -1,7 +1,7 @@
 import TopAll from "./components/top";
 
 interface TopPageProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const TopPage = async ({ searchParams }: TopPageProps) => {

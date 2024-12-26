@@ -4,12 +4,13 @@ import getTv from "@/actions/tv/get-tv";
 import PageList from "../../components/pageList";
 
 interface OnAiringAllProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const OnAiringAll = async ({ searchParams }: OnAiringAllProps) => {
-  const currentPage = parseInt((searchParams.page as string) || "1");
-  const pageSize = parseInt((searchParams.pageSize as string) || "1");
+  const params = await searchParams;
+  const currentPage = parseInt((params.page as string) || "1");
+  const pageSize = parseInt((params.pageSize as string) || "1");
   const { posts } = await getTv("on_the_air", currentPage);
 
   return (

@@ -1,7 +1,7 @@
 const URL = process.env.NEXT_PUBLIC_API_URL;
 const API_KEY = process.env.API_KEY;
 
-import { TvTrendingResponse } from "@/types";
+import { TrendingTvResponse } from "@/types";
 
 const getTrending = async (id: number) => {
   const res = await fetch(
@@ -9,7 +9,7 @@ const getTrending = async (id: number) => {
 
     `
   );
-  const posts: TvTrendingResponse = await res.json();
+  const posts: TrendingTvResponse = await res.json();
   return { posts };
 };
 

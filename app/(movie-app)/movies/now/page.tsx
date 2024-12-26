@@ -1,7 +1,7 @@
 import NowPlayAll from "./components/now";
 
 interface NowPlatPageProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const NowPlatPage = async ({ searchParams }: NowPlatPageProps) => {

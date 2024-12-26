@@ -5,6 +5,17 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 // import { outfitMedium } from "@/app/layout";
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+  }
+}
 interface NowPlayListProps {
   posts: TrendingResult[];
 }
@@ -14,6 +25,7 @@ const HomeTrendingList = ({ posts }: NowPlayListProps) => {
 
   const addFavorites = async (data: TrendingResult) => {
     const response = await fetch(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       `/api/categories?userId=${session?.user?.id}`,
       {
         method: "POST",

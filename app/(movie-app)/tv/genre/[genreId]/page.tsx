@@ -1,7 +1,7 @@
 import DiscoverAll from "./components/discover";
 
 interface TrendingPageProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: any;
 }

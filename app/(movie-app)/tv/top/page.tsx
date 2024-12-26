@@ -1,10 +1,10 @@
 import TopAll from "./components/top";
 
-interface PopularPageProps {
-  searchParams: { [key: string]: string | undefined };
+interface TopPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-const PopularPage = async ({ searchParams }: PopularPageProps) => {
+const TopPage = async ({ searchParams }: TopPageProps) => {
   return (
     <main>
       <section className="pb-16">
@@ -14,4 +14,4 @@ const PopularPage = async ({ searchParams }: PopularPageProps) => {
   );
 };
 
-export default PopularPage;
+export default TopPage;

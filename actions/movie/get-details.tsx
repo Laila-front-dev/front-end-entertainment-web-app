@@ -3,7 +3,7 @@ const API_KEY = process.env.API_KEY;
 
 import { DetailsResponse } from "@/types";
 
-const getDetails = async (name: string, id: unknown) => {
+const getDetails = async (name: string, id: string) => {
   const res = await fetch(
     `${URL}/${name}/${id}?api_key=${API_KEY}
 

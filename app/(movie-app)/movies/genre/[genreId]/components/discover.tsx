@@ -4,21 +4,22 @@ import PageList from "../../../components/pageList";
 import Container from "@/components/ui/container";
 import getGenre from "@/actions/movie/get-genre";
 
-interface TrendingAllProps {
-  searchParams: { [key: string]: string | undefined };
+interface genreAllProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: any;
 }
 
-const DiscoverAll = async ({ params, searchParams }: TrendingAllProps) => {
-  const currentPage = parseInt((searchParams.page as string) || "1");
-  const pageSize = parseInt((searchParams.pageSize as string) || "1");
+const DiscoverAll = async ({ params, searchParams }: genreAllProps) => {
+  const paramse = await searchParams;
+  const currentPage = parseInt((paramse.page as string) || "1");
+  const pageSize = parseInt((paramse.pageSize as string) || "1");
 
   const { posts } = await getDiscover(params.genreId, currentPage);
   const collection = await getGenre();
 
   const selectedName = collection.genres.find(
-    (genre) => genre.id === parseInt(params.genreId)
+    (genre: { id: number }) => genre.id === parseInt(params.genreId)
   );
   return (
     <Container>

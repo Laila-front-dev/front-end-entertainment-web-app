@@ -8,10 +8,6 @@ const outfitLight = localFont({
   src: "./fonts/OutfitLight.woff",
   weight: "300",
 });
-export const outfitMedium = localFont({
-  src: "./fonts/OutfitMedium.woff",
-  weight: "500",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Provider>
+      <Provider
+        session={{
+          user: { id: "", name: null, email: null, image: null },
+          expires: "",
+        }}
+      >
         <body
           className={`${outfitLight.className} bg-primary-900 text-primary-100`}
         >

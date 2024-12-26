@@ -10,11 +10,8 @@ interface Props {
 }
 
 const Details = async ({ params }: Props) => {
-  const { detailsId } = await Promise.resolve(params);
+  const detailsId = params.detailsId;
 
-  if (!detailsId) {
-    return <div>Loading...</div>;
-  }
   const details = await getDetails("movie", detailsId);
 
   return (

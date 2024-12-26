@@ -1,7 +1,7 @@
 import PopularAll from "./components/popular";
 
 interface PopularPageProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const PopularPage = async ({ searchParams }: PopularPageProps) => {

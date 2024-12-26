@@ -4,13 +4,23 @@
 
 import Image from "next/image";
 
-import { getServerSession } from "next-auth";
+import { getServerSession, Session } from "next-auth";
 import { authOptions } from "../../api/auth/[...nextauth]/authOptions";
 import Container from "@/components/ui/container";
 import { redirect } from "next/navigation";
 
+interface ExtendedSession extends Session {
+  user: {
+    id: string;
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+  };
+}
+
 const BookmarkedPage = async () => {
-  const session = await getServerSession(authOptions);
+  const session: ExtendedSession | null = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
 
   if (!session) {
     redirect("/login");

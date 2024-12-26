@@ -1,3 +1,22 @@
+export interface DiscoverResponse {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  genres: any;
+  total_pages: number;
+  results: MoviesResult[];
+  id: number;
+  title: string;
+  body: string;
+}
+export interface DiscoverResponseTv {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  genres: any;
+  total_pages: number;
+  results: TvResult[];
+  id: number;
+  title: string;
+  body: string;
+}
+
 // movie
 
 export type DetailsResponse = {
@@ -27,6 +46,8 @@ export type MoviesResult = {
   release_date: string;
   media_type: string;
   original_language: string;
+  original_name: string;
+  first_air_date: string;
 };
 
 export type MoviesResponse = {
@@ -42,6 +63,8 @@ export type TrendingResult = {
   release_date: string;
   media_type: string;
   original_language: string;
+  original_name: string;
+  first_air_date: string;
 };
 
 export type TrendingResponse = {
@@ -69,6 +92,9 @@ export type TvResponse = {
 
 export type TrendingTvResult = {
   results: TrendingTvResult[];
+  title: string;
+  release_date: string;
+  // results: TrendingTvResult[];
   id: number;
   original_name: string;
   backdrop_path: string;

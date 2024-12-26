@@ -4,12 +4,13 @@ import PageList from "../../components/pageList";
 import getMovies from "@/actions/movie/get-movies";
 
 interface NowPlayAllProps {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 const NowPlayAll = async ({ searchParams }: NowPlayAllProps) => {
-  const currentPage = parseInt((searchParams.page as string) || "1");
-  const pageSize = parseInt((searchParams.pageSize as string) || "1");
+  const params = await searchParams;
+  const currentPage = parseInt((params.page as string) || "1");
+  const pageSize = parseInt((params.pageSize as string) || "1");
   const { posts } = await getMovies("now_playing", currentPage);
 
   return (

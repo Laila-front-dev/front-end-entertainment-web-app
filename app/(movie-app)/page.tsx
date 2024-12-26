@@ -3,7 +3,7 @@
 import HomeMovies from "./movies/components/homeMovies";
 import HomeTv from "./tv/components/homeTv";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className="overflow-hidden">
       {/* MOVIES */}
