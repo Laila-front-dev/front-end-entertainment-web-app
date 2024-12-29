@@ -26,10 +26,10 @@ const BookmarkedPage = async () => {
     redirect("/login");
   }
 
-  // const data = await fetch(
-  //   `http://localhost:3000/api/categories?userId=${session?.user?.id}`
-  // );
-  // const posts = await data.json();
+  const data = await fetch(
+    `http://localhost:3000/api/categories?userId=${session?.user?.id}`
+  );
+  const posts = await data.json();
 
   return (
     <main>
