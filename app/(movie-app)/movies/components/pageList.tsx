@@ -14,7 +14,7 @@ const PageList = ({ posts }: NowPlayListProps) => {
 
   const addFavorites = async (data: MoviesResult) => {
     const response = await fetch(
-      `/api/categories?userId=${session?.user?.id}`,
+      `/api/bookmarked?userId=${session?.user?.id}`,
       {
         method: "POST",
         headers: {
