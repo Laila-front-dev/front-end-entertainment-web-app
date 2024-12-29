@@ -26,10 +26,10 @@ const BookmarkedPage = async () => {
     redirect("/login");
   }
 
-  const data = await fetch(
-    `http://localhost:3000/api/categories?userId=${session?.user?.id}`
-  );
-  const posts = await data.json();
+  // const data = await fetch(
+  //   `http://localhost:3000/api/categories?userId=${session?.user?.id}`
+  // );
+  // const posts = await data.json();
 
   return (
     <main>
@@ -38,7 +38,7 @@ const BookmarkedPage = async () => {
           <h1 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
             BookmarkItem
           </h1>
-          <p className="capitalize">
+          {/* <p className="capitalize">
             welcome back
             <span className="text-secondary-400"> {session?.user?.name}</span>
           </p>
@@ -79,7 +79,7 @@ const BookmarkedPage = async () => {
                 <h3>{post.title}</h3>
               </div>
             ))}
-          </div>
+          </div> */}
         </Container>
       </section>
     </main>
