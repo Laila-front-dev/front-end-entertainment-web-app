@@ -26,7 +26,9 @@ const BookmarkedPage = async () => {
     redirect("/login");
   }
 
-  const data = await fetch(`/api/bookmarked?userId=${session?.user?.id}`);
+  const data = await fetch(
+    `https://front-end-entertainment-web-app.vercel.app/api/bookmarked?userId=${session?.user?.id}`
+  );
   const posts = await data.json();
 
   return (
