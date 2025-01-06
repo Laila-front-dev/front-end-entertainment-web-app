@@ -1,4 +1,4 @@
-import PopularAll from "./components/popular";
+import PopularAll from "./components/Popular";
 
 interface PopularPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

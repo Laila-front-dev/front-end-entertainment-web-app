@@ -1,4 +1,5 @@
-import NowPlayAll from "./components/now";
+import { Suspense } from "react";
+import NowPlayAll from "./components/Now";
 
 interface NowPlatPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -7,7 +8,9 @@ interface NowPlatPageProps {
 const NowPlatPage = async ({ searchParams }: NowPlatPageProps) => {
   return (
     <section className="pb-16">
-      <NowPlayAll searchParams={searchParams} />
+      <Suspense>
+        <NowPlayAll searchParams={searchParams} />
+      </Suspense>
     </section>
   );
 };

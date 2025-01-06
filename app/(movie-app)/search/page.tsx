@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import SearchList from "./components/searchList";
 
 interface PopularPageProps {
@@ -9,7 +10,9 @@ const SearchPage = async ({ searchParams }: PopularPageProps) => {
   const query = params?.query || "";
   return (
     <>
-      <SearchList query={query} searchParams={searchParams} />
+      <Suspense>
+        <SearchList query={query} searchParams={searchParams} />
+      </Suspense>
     </>
   );
 };

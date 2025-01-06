@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Provider from "@/context/Provider";
 import Search from "./(movie-app)/search/components/search";
+import { Suspense } from "react";
 
 const outfitLight = localFont({
   src: "./fonts/OutfitLight.woff",
@@ -34,7 +35,9 @@ export default function RootLayout({
           <div className="lg:flex">
             <Header />
             <main className="overflow-hidden">
-              <Search />
+              <Suspense>
+                <Search />
+              </Suspense>
               {children}
             </main>
           </div>
