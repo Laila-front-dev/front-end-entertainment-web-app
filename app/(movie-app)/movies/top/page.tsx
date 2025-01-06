@@ -1,4 +1,4 @@
-import TopAll from "./components/Top";
+import TopAll from "./components/top";
 
 interface TopPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

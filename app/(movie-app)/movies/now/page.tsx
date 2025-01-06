@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import NowPlayAll from "./components/Now";
+import NowPlayAll from "./components/now";
 
 interface NowPlatPageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
