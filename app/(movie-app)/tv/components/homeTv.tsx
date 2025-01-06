@@ -29,7 +29,7 @@ function HomeTv() {
           </div>
         </Container>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -42,12 +42,12 @@ function HomeTv() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomeTvPopular />
           </div>
         </Container>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -60,12 +60,12 @@ function HomeTv() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomeTvAiring />
           </div>
         </Container>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -78,12 +78,12 @@ function HomeTv() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomeTvOnTheAir />
           </div>
         </Container>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -96,7 +96,7 @@ function HomeTv() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomeTvTopRated />
           </div>
         </Container>

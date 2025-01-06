@@ -8,11 +8,9 @@ interface genrePageProps {
 
 const TrendingPage = async ({ params, searchParams }: genrePageProps) => {
   return (
-    <main>
-      <section>
-        <DiscoverAll params={params} searchParams={searchParams} />
-      </section>
-    </main>
+    <section>
+      <DiscoverAll params={params} searchParams={searchParams} />
+    </section>
   );
 };
 

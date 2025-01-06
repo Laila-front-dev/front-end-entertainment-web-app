@@ -6,11 +6,9 @@ interface TrendingPageProps {
 
 const TrendingPage = async ({ searchParams }: TrendingPageProps) => {
   return (
-    <main>
-      <section className="pb-16">
-        <TrendingAll searchParams={searchParams} />
-      </section>
-    </main>
+    <section className="pb-16">
+      <TrendingAll searchParams={searchParams} />
+    </section>
   );
 };
 

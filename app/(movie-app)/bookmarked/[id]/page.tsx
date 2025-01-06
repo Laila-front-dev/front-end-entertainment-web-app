@@ -27,7 +27,7 @@ const BookmarkedPage = async () => {
   }
 
   const data = await fetch(
-    `https://front-end-entertainment-web-app.vercel.app/api/bookmarked?userId=${session?.user?.id}`
+    `${process.env.NEXTAUTH_URL}/api/bookmarked?userId=${session?.user?.id}`
   );
   const posts = await data.json();
 
@@ -39,7 +39,7 @@ const BookmarkedPage = async () => {
             BookmarkItem
           </h1>
           <p className="capitalize">
-            welcome back
+            welcome
             <span className="text-secondary-400"> {session?.user?.name}</span>
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px] pt-10">

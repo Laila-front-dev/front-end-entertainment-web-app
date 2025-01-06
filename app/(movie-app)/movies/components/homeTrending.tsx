@@ -5,7 +5,7 @@ const HomeTrending = async () => {
   const trending = await Trending();
   return (
     <>
-      <HomeTrendingList posts={trending.results} />
+      <HomeTrendingList posts={trending.results} details="movies" />
     </>
   );
 };

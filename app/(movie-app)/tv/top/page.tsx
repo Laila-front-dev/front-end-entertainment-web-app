@@ -6,11 +6,9 @@ interface TopPageProps {
 
 const TopPage = async ({ searchParams }: TopPageProps) => {
   return (
-    <main>
-      <section className="pb-16">
-        <TopAll searchParams={searchParams} />
-      </section>
-    </main>
+    <section className="pb-16">
+      <TopAll searchParams={searchParams} />
+    </section>
   );
 };
 

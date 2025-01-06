@@ -14,19 +14,23 @@ const Upcoming = async ({ searchParams }: UpcomingProps) => {
   const { posts } = await getMovies("upcoming", currentPage);
 
   return (
-    <Container>
-      <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px] py-[2.063rem]">
-        Upcoming movies
-      </h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px] pb-[12rem]">
-        <PageList posts={posts.results} />
-      </div>
-      <PaginationWithLinks
-        page={currentPage}
-        pageSize={pageSize}
-        totalCount={posts.total_pages}
-      />
-    </Container>
+    <>
+      <Container>
+        <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px] py-[1.5rem]">
+          Upcoming movies
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
+          <PageList posts={posts.results} details="movies" />
+        </div>
+      </Container>
+      <Container>
+        <PaginationWithLinks
+          page={currentPage}
+          pageSize={pageSize}
+          totalCount={posts.total_pages}
+        />
+      </Container>
+    </>
   );
 };
 

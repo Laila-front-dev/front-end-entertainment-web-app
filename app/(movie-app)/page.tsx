@@ -5,11 +5,13 @@ import HomeTv from "./tv/components/homeTv";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden">
+    // <main className="overflow-hidden">
+    <>
       {/* MOVIES */}
       <HomeMovies />
       {/* TV */}
       <HomeTv />
-    </main>
+    </>
+    // </main>
   );
 }

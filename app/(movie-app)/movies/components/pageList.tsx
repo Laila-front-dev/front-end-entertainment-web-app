@@ -4,11 +4,15 @@ import { MoviesResult } from "@/types";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
+import avatar from "/app/images/no-image.jpg";
+import Link from "next/link";
+
 interface NowPlayListProps {
   posts: MoviesResult[];
+  details: string;
 }
 
-const PageList = ({ posts }: NowPlayListProps) => {
+const PageList = ({ posts, details }: NowPlayListProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: session, status } = useSession();
 
@@ -32,11 +36,17 @@ const PageList = ({ posts }: NowPlayListProps) => {
   return (
     <>
       {posts.map((post) => (
-        <div key={post.id} className="relative mt-4 md:mt-7 lg:mt-9">
+        <div key={post.id} className="relative mt-4">
           <Image
-            className="w-full h-full rounded-lg object-cover"
-            src={`https://image.tmdb.org/t/p/w500${post.backdrop_path}`}
-            alt={post.title}
+            className="w-full h-[232.969px] rounded-lg object-cover"
+            src={
+              post.backdrop_path || post.poster_path
+                ? `https://image.tmdb.org/t/p/w500${
+                    post.backdrop_path || post.poster_path
+                  }`
+                : avatar
+            }
+            alt={post.title || (post.title = post.original_name)}
             width={470}
             height={230}
             loading="lazy"
@@ -45,7 +55,7 @@ const PageList = ({ posts }: NowPlayListProps) => {
             onClick={() => {
               addFavorites(post);
             }}
-            className={`absolute top-0 right-0 mr-4 mt-4 md:mr-6 md:mt-6 w-[32px] h-[32px]  rounded-[100px] cursor-pointer bg-[#979797] hover:bg-secondary-400`}
+            className={`absolute top-0 right-0 mr-4 mt-4 md:mr-6 md:mt-6 w-[32px] h-[32px]  rounded-[100px] cursor-pointer bg-[#979797] hover:bg-secondary-400 `}
           >
             <svg
               className="translate-y-2.5 translate-x-2.5"
@@ -64,7 +74,10 @@ const PageList = ({ posts }: NowPlayListProps) => {
           <div>
             <ul className="flex gap-5 opacity-80 text-[12px] pt-4">
               <li>
-                <span>{post.release_date}</span>
+                <span>
+                  {post.release_date ||
+                    (post.release_date = post.first_air_date)}
+                </span>
               </li>
               <li className="flex gap-2">
                 <span>
@@ -85,12 +98,12 @@ const PageList = ({ posts }: NowPlayListProps) => {
                 <span className="uppercase">{post.original_language}</span>
               </li>
             </ul>
-            <a
-              href={`/movies/details/${post.id}`}
+            <Link
+              href={`/${details}/details/${post.id}`}
               className={`text-base md:text-2xl leading-normal hover:text-secondary-400 transition-all duration-300 ease-in-out`}
             >
-              {post.title}
-            </a>
+              {post.title || (post.title = post.original_name)}
+            </Link>
           </div>
         </div>
       ))}

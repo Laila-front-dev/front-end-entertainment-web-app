@@ -3,9 +3,9 @@ const API_KEY = process.env.API_KEY;
 
 import { MoviesResponse } from "@/types";
 
-const getMovies = async (name: string, id: number) => {
+const getSearch = async (name: string, search: string, id: number) => {
   const res = await fetch(
-    `${URL}/movie/${name}?api_key=${API_KEY}&page=${id}
+    `${URL}/search/${name}?query=${search}&api_key=${API_KEY}&page=${id}
 
     `
   );
@@ -13,4 +13,4 @@ const getMovies = async (name: string, id: number) => {
   return { posts };
 };
 
-export default getMovies;
+export default getSearch;

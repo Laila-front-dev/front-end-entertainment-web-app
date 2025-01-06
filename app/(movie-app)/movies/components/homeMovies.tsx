@@ -33,7 +33,7 @@ function HomeMovies() {
           </Container>
         </Suspense>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Suspense fallback={<Loading />}>
           <Container>
             <div className="flex justify-between items-center">
@@ -47,13 +47,13 @@ function HomeMovies() {
                 show more
               </Link>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
               <HomePopular />
             </div>
           </Container>
         </Suspense>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -66,12 +66,12 @@ function HomeMovies() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomePlayNow />
           </div>
         </Container>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -84,12 +84,12 @@ function HomeMovies() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomeTopMovie />
           </div>
         </Container>
       </section>
-      <section className="pt-9 pb-[8rem]">
+      <section className="pt-9">
         <Container>
           <div className="flex justify-between items-center">
             <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px]">
@@ -102,7 +102,7 @@ function HomeMovies() {
               show more
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
             <HomeUncoming />
           </div>
         </Container>

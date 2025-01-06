@@ -6,7 +6,7 @@ const HomePlayNow = async () => {
   const slicePosts = posts.results.slice(0, 8);
   return (
     <>
-      <PageList posts={slicePosts} />
+      <PageList posts={slicePosts} details="movies" />
     </>
   );
 };

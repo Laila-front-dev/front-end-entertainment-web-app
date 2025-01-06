@@ -7,7 +7,7 @@ const HomeTopMovie = async () => {
 
   return (
     <>
-      <PageList posts={slicePosts} />
+      <PageList posts={slicePosts} details="movies" />
     </>
   );
 };

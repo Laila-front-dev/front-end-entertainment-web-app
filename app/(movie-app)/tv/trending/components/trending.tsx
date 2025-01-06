@@ -1,6 +1,7 @@
 import { PaginationWithLinks } from "@/components/ui/pagination-with-links";
 import Container from "@/components/ui/container";
-import PageList from "../../components/pageList";
+// import PageList from "../../components/pageList";
+import PageList from "@/app/(movie-app)/movies/components/pageList";
 import getTrending from "@/actions/tv/trending/get-trending";
 
 interface TrendingAllProps {
@@ -14,19 +15,23 @@ const TrendingAll = async ({ searchParams }: TrendingAllProps) => {
   const { posts } = await getTrending(currentPage);
 
   return (
-    <Container>
-      <h1 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px] py-[2.063rem]">
-        Trending Tv
-      </h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px] pb-[12rem]">
-        <PageList posts={posts.results} />
-      </div>
-      <PaginationWithLinks
-        page={currentPage}
-        pageSize={pageSize}
-        totalCount={posts.total_pages}
-      />
-    </Container>
+    <>
+      <Container>
+        <h2 className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px] py-[1.5rem]">
+          Trending movies
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
+          <PageList posts={posts.results} details="tv" />
+        </div>
+      </Container>
+      <Container>
+        <PaginationWithLinks
+          page={currentPage}
+          pageSize={pageSize}
+          totalCount={posts.total_pages}
+        />
+      </Container>
+    </>
   );
 };
 

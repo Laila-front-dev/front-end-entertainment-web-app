@@ -6,11 +6,9 @@ interface NowPlatPageProps {
 
 const NowPlatPage = async ({ searchParams }: NowPlatPageProps) => {
   return (
-    <main>
-      <section className="pb-16">
-        <NowPlayAll searchParams={searchParams} />
-      </section>
-    </main>
+    <section className="pb-16">
+      <NowPlayAll searchParams={searchParams} />
+    </section>
   );
 };
 

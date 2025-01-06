@@ -7,7 +7,7 @@ const HomePopular = async () => {
 
   return (
     <>
-      <PageList posts={slicePosts} />
+      <PageList posts={slicePosts} details="movies" />
     </>
   );
 };

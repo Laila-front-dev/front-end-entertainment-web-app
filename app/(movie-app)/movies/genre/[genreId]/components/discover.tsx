@@ -22,27 +22,29 @@ const DiscoverAll = async ({ params, searchParams }: genreAllProps) => {
     (genre: { id: number }) => genre.id === parseInt(params.genreId)
   );
   return (
-    <Container>
-      {selectedName ? (
-        <h1
-          key={selectedName.id}
-          className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px] py-[2.063rem]"
-        >
-          {selectedName.name}
-        </h1>
-      ) : (
-        "Name Not Found"
-      )}
+    <>
+      <Container>
+        {selectedName ? (
+          <h1
+            key={selectedName.id}
+            className="text-[1.25rem] lg:text-[2rem] capitalize tracking-[-0.5px] py-[1.5rem]"
+          >
+            {selectedName.name}
+          </h1>
+        ) : (
+          "Name Not Found"
+        )}
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px] gap-y-[80px] pb-[12rem]">
-        <PageList posts={posts.results} />
-      </div>
-      <PaginationWithLinks
-        page={currentPage}
-        pageSize={pageSize}
-        totalCount={posts.total_pages}
-      />
-    </Container>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[40px]">
+          <PageList posts={posts.results} details="movies" />
+        </div>
+        <PaginationWithLinks
+          page={currentPage}
+          pageSize={pageSize}
+          totalCount={posts.total_pages}
+        />
+      </Container>
+    </>
   );
 };
 

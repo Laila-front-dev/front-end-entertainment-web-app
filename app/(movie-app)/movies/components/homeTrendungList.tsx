@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingResult } from "@/types";
+import { MoviesResult } from "@/types";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
@@ -17,16 +17,17 @@ declare module "next-auth" {
   }
 }
 interface NowPlayListProps {
-  posts: TrendingResult[];
+  posts: MoviesResult[];
+  details: string;
 }
-const HomeTrendingList = ({ posts }: NowPlayListProps) => {
+const HomeTrendingList = ({ posts, details }: NowPlayListProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: session, status } = useSession();
 
-  const addFavorites = async (data: TrendingResult) => {
+  const addFavorites = async (data: MoviesResult) => {
     const response = await fetch(
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      `/api/categories?userId=${session?.user?.id}`,
+      `/api/bookmarked?userId=${session?.user?.id}`,
       {
         method: "POST",
         headers: {
@@ -49,7 +50,9 @@ const HomeTrendingList = ({ posts }: NowPlayListProps) => {
         >
           <Image
             className="w-full h-full rounded-lg"
-            src={`https://image.tmdb.org/t/p/w500${post.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w500${
+              post.backdrop_path || (post.title = post.original_name)
+            }`}
             alt={post.title}
             width={470}
             height={230}
@@ -75,7 +78,10 @@ const HomeTrendingList = ({ posts }: NowPlayListProps) => {
           <div className="absolute bottom-0 pl-4 pb-4 md:pl-6 md:pb-6">
             <ul className="flex gap-5 opacity-80 text-[12px]">
               <li>
-                <span>{post.release_date}</span>
+                <span>
+                  {post.release_date ||
+                    (post.release_date = post.first_air_date)}
+                </span>
               </li>
               <li className="flex gap-2">
                 <span>
@@ -97,10 +103,10 @@ const HomeTrendingList = ({ posts }: NowPlayListProps) => {
               </li>
             </ul>
             <a
-              href={`/movies/details/${post.id}`}
+              href={`/${details}/details/${post.id}`}
               className={`text-base md:text-2xl leading-normal hover:text-secondary-400 transition-all duration-300 ease-in-out`}
             >
-              {post.title}
+              {post.title || (post.title = post.original_name)}
             </a>
           </div>
         </div>

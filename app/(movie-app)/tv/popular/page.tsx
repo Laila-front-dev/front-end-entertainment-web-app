@@ -6,11 +6,9 @@ interface PopularPageProps {
 
 const PopularPage = async ({ searchParams }: PopularPageProps) => {
   return (
-    <main>
-      <section className="pb-16">
-        <PopularAll searchParams={searchParams} />
-      </section>
-    </main>
+    <section className="pb-16">
+      <PopularAll searchParams={searchParams} />
+    </section>
   );
 };
 

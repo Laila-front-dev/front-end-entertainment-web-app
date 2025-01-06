@@ -47,6 +47,7 @@ export type MoviesResult = {
   media_type: string;
   original_language: string;
   original_name: string;
+  poster_path: string;
   first_air_date: string;
 };
 
